@@ -26,57 +26,14 @@ const Drawer = ({ open, onClose, variant = 'temporary', anchor = 'left' }) => {
   const menuItems = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: 'Calidad de datos',
       icon: <DashboardIcon />,
       path: '/dashboard',
       active: true
-    },
-    {
-      id: 'tables',
-      label: 'Tables',
-      icon: <TablesIcon />,
-      path: '/tables'
-    },
-    {
-      id: 'billing',
-      label: 'Billing',
-      icon: <BillingIcon />,
-      path: '/billing'
-    },
-    {
-      id: 'rtl',
-      label: 'RTL',
-      icon: <RtlIcon />,
-      path: '/rtl'
-    },
-    {
-      id: 'notifications',
-      label: 'Notifications',
-      icon: <NotificationsIcon />,
-      path: '/notifications'
-    },
-    {
-      id: 'profile',
-      label: 'Profile',
-      icon: <ProfileIcon />,
-      path: '/profile'
     }
   ];
 
-  const authItems = [
-    {
-      id: 'signin',
-      label: 'Sign In',
-      icon: <SignInIcon />,
-      path: '/signin'
-    },
-    {
-      id: 'signup',
-      label: 'Sign Up',
-      icon: <SignUpIcon />,
-      path: '/signup'
-    }
-  ];
+
 
   const handleItemClick = (item) => {
     console.log(`Navigating to: ${item.path}`);
@@ -188,44 +145,7 @@ const Drawer = ({ open, onClose, variant = 'temporary', anchor = 'left' }) => {
         }} />
 
         {/* Auth Items */}
-        <List sx={{ py: 1 }}>
-        {authItems.map((item) => (
-          <ListItem key={item.id} disablePadding sx={{ px: 2, mb: 0.5 }}>
-            <ListItemButton
-              onClick={() => handleItemClick(item)}
-              sx={{
-                borderRadius: 2,
-                py: 1,
-                px: 2,
-                color: 'white',
-                '&:hover': {
-                  bgcolor: '#718096',
-                  transform: 'translateX(2px)',
-                },
-                transition: 'all 0.2s ease-in-out'
-              }}
-            >
-              <ListItemIcon sx={{ 
-                color: 'white', 
-                minWidth: 40,
-                opacity: 0.8
-              }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText 
-                primary={item.label}
-                sx={{
-                  '& .MuiListItemText-primary': {
-                    fontSize: '0.875rem',
-                    fontWeight: 500,
-                    opacity: 0.9
-                  }
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-              </List>
+        
       </Box>
 
       {/* Footer */}
@@ -235,32 +155,6 @@ const Drawer = ({ open, onClose, variant = 'temporary', anchor = 'left' }) => {
         bgcolor: '#191b1dff',
         flexShrink: 0
       }}>
-        {/* Upgrade Button */}
-        <Box sx={{
-          bgcolor: '#3182ce',
-          borderRadius: 2,
-          p: 2,
-          textAlign: 'center',
-          mb: 2,
-          cursor: 'pointer',
-          '&:hover': {
-            bgcolor: '#2c5aa0',
-            transform: 'translateY(-1px)'
-          },
-          transition: 'all 0.2s ease-in-out'
-        }}
-        onClick={() => console.log('Upgrade to Pro clicked')}
-        >
-          <Typography sx={{ 
-            color: 'white',
-            fontSize: '0.875rem',
-            fontWeight: 600,
-            textTransform: 'uppercase',
-            letterSpacing: '0.5px'
-          }}>
-            UPGRADE TO PRO
-          </Typography>
-        </Box>
 
         <Typography variant="caption" sx={{ 
           color: '#a0aec0',

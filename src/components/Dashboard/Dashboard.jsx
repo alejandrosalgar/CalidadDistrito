@@ -15,7 +15,6 @@ import {
 import { 
   Menu as MenuIcon,
   Search as SearchIcon,
-  Notifications as NotificationsIcon,
   Settings as SettingsIcon,
   // Iconos para las métricas
   Storage as StorageIcon,
@@ -44,10 +43,6 @@ const Dashboard = () => {
     console.log('Searching for:', event.target.value);
   };
 
-  const handleNotificationClick = () => {
-    console.log('Notifications clicked');
-    // TODO: Abrir panel de notificaciones
-  };
 
   const handleSettingsClick = () => {
     console.log('Settings clicked');
@@ -243,95 +238,10 @@ const Dashboard = () => {
           </Typography>
 
           {/* Search Bar */}
-          <Box sx={{
-            position: 'relative',
-            borderRadius: 1,
-            backgroundColor: '#f5f5f5',
-            '&:hover': {
-              backgroundColor: '#eeeeee',
-            },
-            marginRight: 2,
-            marginLeft: 0,
-            width: '100%',
-            maxWidth: { xs: '150px', sm: '200px', md: '300px' },
-            display: 'flex',
-            alignItems: 'center'
-          }}>
-            <Box sx={{
-              padding: '0 16px',
-              height: '100%',
-              position: 'absolute',
-              pointerEvents: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <SearchIcon sx={{ color: '#666' }} />
-            </Box>
-            <InputBase
-              placeholder="Search here"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              sx={{
-                color: 'inherit',
-                width: '100%',
-                '& .MuiInputBase-input': {
-                  padding: '8px 8px 8px 0',
-                  paddingLeft: '48px',
-                  transition: theme.transitions.create('width'),
-                  width: '100%',
-                  fontSize: '0.875rem'
-                },
-              }}
-            />
-          </Box>
+          
 
           {/* Action Buttons */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            {/* Notifications */}
-            <IconButton
-              color="inherit"
-              onClick={handleNotificationClick}
-              sx={{
-                color: '#666',
-                '&:hover': { backgroundColor: '#f5f5f5' }
-              }}
-            >
-              <Badge badgeContent={3} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-
-            {/* Settings */}
-            <IconButton
-              color="inherit"
-              onClick={handleSettingsClick}
-              sx={{
-                color: '#666',
-                '&:hover': { backgroundColor: '#f5f5f5' }
-              }}
-            >
-              <SettingsIcon />
-            </IconButton>
-
-            {/* Profile */}
-            <IconButton
-              color="inherit"
-              onClick={handleProfileClick}
-              sx={{
-                '&:hover': { backgroundColor: '#f5f5f5' }
-              }}
-            >
-              <Avatar sx={{ 
-                width: 32, 
-                height: 32, 
-                bgcolor: '#3182ce',
-                fontSize: '0.875rem'
-              }}>
-                👤
-              </Avatar>
-            </IconButton>
-          </Box>
+          
         </Toolbar>
       </AppBar>
 
