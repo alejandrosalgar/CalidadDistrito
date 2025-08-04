@@ -451,14 +451,14 @@ const Dashboard = () => {
             </Box>
 
             {/* Charts Row 1 - Line Chart and Pie Charts */}
-            <Box sx={{
+             <Box sx={{
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr' : '1.8fr 1fr',
               gap: 2.5,
               mb: 3,
-              alignItems: 'start'
-             
+              alignItems: 'stretch'
             }}>
+              
               <Box sx={{
                 bgcolor: 'white',
                 p: isMobile ? 2 : 3,
