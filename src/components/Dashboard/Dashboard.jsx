@@ -581,7 +581,7 @@ const Dashboard = () => {
               gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
               gap: 2.5,
               mb: 3,
-              alignItems: 'start'
+              alignItems: 'stretch'
             }}>
               <Box sx={{
                 bgcolor: 'white',
@@ -712,7 +712,7 @@ const Dashboard = () => {
               gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
               gap: 2.5,
               mb: 3,
-              alignItems: 'start'
+              alignItems: 'stretch'
             }}>
               <Box sx={{
                 bgcolor: 'white',
