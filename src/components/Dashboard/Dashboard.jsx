@@ -8,14 +8,9 @@ import {
   Box, 
   useMediaQuery, 
   useTheme,
-  InputBase,
-  Avatar,
-  Badge
 } from '@mui/material';
 import { 
   Menu as MenuIcon,
-  Search as SearchIcon,
-  Settings as SettingsIcon,
   // Iconos para las métricas
   Storage as StorageIcon,
   CheckCircle as CheckCircleIcon,
@@ -28,7 +23,6 @@ const Dashboard = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(!isMobile);
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     setDrawerOpen(!isMobile);
@@ -38,21 +32,7 @@ const Dashboard = () => {
     setDrawerOpen(!drawerOpen);
   };
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-    console.log('Searching for:', event.target.value);
-  };
 
-
-  const handleSettingsClick = () => {
-    console.log('Settings clicked');
-    // TODO: Abrir panel de configuración
-  };
-
-  const handleProfileClick = () => {
-    console.log('Profile clicked');
-    // TODO: Abrir menú de perfil
-  };
 
   // Main metrics data con iconos y colores
   const metrics = [
