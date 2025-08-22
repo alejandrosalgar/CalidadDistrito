@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, Area, AreaChart } from 'recharts';
-import { 
-  AppBar, 
-  Toolbar, 
-  IconButton, 
-  Typography, 
-  Box, 
-  useMediaQuery, 
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Box,
+  useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { 
+import {
   Menu as MenuIcon,
   // Iconos para las métricas
   Storage as StorageIcon,
@@ -32,45 +32,55 @@ const Dashboard = () => {
     setDrawerOpen(!drawerOpen);
   };
 
+  // Paleta de colores oficial de la Alcaldía de Medellín
+  const coloresAlcaldia = {
+    azulCyan: '#00a7b8',
+    azulClaro: '#00aeef',
+    verde: '#00904c',
+    amarillo: '#ffdc2f',
+    naranja: '#f47b29',
+    magenta: '#ae3e97',
+    gris: '#a8a89d'
+  };
 
 
   // Main metrics data con iconos y colores
   const metrics = [
-    { 
-      title: 'Registros Procesados', 
-      value: '1,019,084', 
-      change: '+3.5%', 
+    {
+      title: 'Registros Procesados',
+      value: '1,019,084',
+      change: '+3.5%',
       trend: 'up',
       icon: <StorageIcon />,
-      iconColor: '#4a5568',
-      iconBg: '#4a5568'
+      iconColor: coloresAlcaldia.gris,
+      iconBg: coloresAlcaldia.gris
     },
-    { 
-      title: 'Validaciones Exitosas', 
-      value: '591,008', 
-      change: '+7.1%', 
+    {
+      title: 'Validaciones Exitosas',
+      value: '591,008',
+      change: '+7.1%',
       trend: 'up',
       icon: <CheckCircleIcon />,
-      iconColor: '#3b82f6',
-      iconBg: '#3b82f6'
+      iconColor: coloresAlcaldia.azulClaro,
+      iconBg: coloresAlcaldia.azulClaro
     },
-    { 
-      title: 'Tasa de Errores', 
-      value: '13.8%', 
-      change: '+2.3%', 
+    {
+      title: 'Tasa de Errores',
+      value: '13.8%',
+      change: '+2.3%',
       trend: 'up',
       icon: <ErrorIcon />,
-      iconColor: '#10b981', // Verde
-      iconBg: '#10b981'
+      iconColor: coloresAlcaldia.verde,
+      iconBg: coloresAlcaldia.verde
     },
-    { 
-      title: 'Tiempo de Validación', 
-      value: '3m 40s', 
-      change: '+1.0%', 
+    {
+      title: 'Tiempo de Validación',
+      value: '3m 40s',
+      change: '+1.0%',
       trend: 'up',
       icon: <ScheduleIcon />,
-      iconColor: '#e91e63',
-      iconBg: '#e91e63'
+      iconColor: coloresAlcaldia.magenta,
+      iconBg: coloresAlcaldia.magenta
     },
   ];
 
@@ -88,14 +98,14 @@ const Dashboard = () => {
 
   // Device distribution data
   const deviceData = [
-    { name: 'Fuentes API', value: 5894, color: '#3b82f6' },
-    { name: 'Fuentes Archivo', value: 2004, color: '#10b981' },
+    { name: 'Fuentes API', value: 5894, color: coloresAlcaldia.azulClaro },
+    { name: 'Fuentes Archivo', value: 2004, color: coloresAlcaldia.verde },
   ];
 
   // Language distribution data
   const languageData = [
-    { name: 'Datos Estructurados', value: 6303, color: '#10b981' },
-    { name: 'Datos No Estructurados', value: 1595, color: '#f59e0b' },
+    { name: 'Datos Estructurados', value: 6303, color: coloresAlcaldia.verde },
+    { name: 'Datos No Estructurados', value: 1595, color: coloresAlcaldia.naranja },
   ];
 
   // Histogram data
@@ -153,8 +163,8 @@ const Dashboard = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Validando': return '#f59e0b';
-      case 'Completado': return '#10b981';
+      case 'Validando': return coloresAlcaldia.naranja;
+      case 'Completado': return coloresAlcaldia.verde;
       case 'Error': return '#ef4444';
       default: return '#6b7280';
     }
@@ -191,7 +201,7 @@ const Dashboard = () => {
       <AppBar
         position="fixed"
         sx={{
-          
+
           ...(drawerOpen && !isMobile && {
             marginLeft: `-${drawerWidth}px`,
             paddingLeft: `${drawerWidth}px`
@@ -212,16 +222,16 @@ const Dashboard = () => {
           >
             <MenuIcon />
           </IconButton>
-          
+
           <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 600, flexGrow: 1 }}>
             Dashboard de Calidad de Datos
           </Typography>
 
           {/* Search Bar */}
-          
+
 
           {/* Action Buttons */}
-          
+
         </Toolbar>
       </AppBar>
 
@@ -239,7 +249,7 @@ const Dashboard = () => {
           flexGrow: 1,
           height: '100vh',
           overflow: 'auto',
-          
+
           ...(drawerOpen && !isMobile && {
             marginLeft: `-${drawerWidth}px`,
             paddingLeft: `${drawerWidth}px`
@@ -252,7 +262,7 @@ const Dashboard = () => {
         <Toolbar />
 
         {/* Scrollable Dashboard Content */}
-        <Box sx={{ 
+        <Box sx={{
           flex: 1,
           p: isMobile ? 2 : '24px 24px 24px 16px', // Mínimo padding necesario
           display: 'flex',
@@ -260,10 +270,10 @@ const Dashboard = () => {
           alignItems: 'flex-start'
         }}>
           {/* Dashboard Content*/}
-          <Box sx={{ 
+          <Box sx={{
             mt: 1,
             width: '100%',
-           
+
           }}>
             {/* Main Metrics */}
             <Box sx={{
@@ -271,7 +281,7 @@ const Dashboard = () => {
               gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: 2.5,
               mb: 3,
-              justifyItems: 'stretch' 
+              justifyItems: 'stretch'
             }}>
               {metrics.map((metric, index) => (
                 <Box key={index} sx={{
@@ -279,11 +289,11 @@ const Dashboard = () => {
                   p: isMobile ? 2 : 3,
                   borderRadius: 3,
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)', // Sombra más suave
-                  border: 'none', 
+                  border: 'none',
                   width: '100%',
                   minWidth: '280px',
-                  position: 'relative', 
-                  overflow: 'visible' 
+                  position: 'relative',
+                  overflow: 'visible'
                 }}>
                   {/* Icono flotante */}
                   <Box sx={{
@@ -332,7 +342,7 @@ const Dashboard = () => {
                     fontSize: isMobile ? '1.5rem' : '1.875rem',
                     fontWeight: 'bold',
                     color: '#111827',
-                    pl: 8 
+                    pl: 8
                   }}>
                     {metric.value}
                   </Typography>
@@ -341,14 +351,14 @@ const Dashboard = () => {
             </Box>
 
             {/* Charts Row 1 - Line Chart and Pie Charts */}
-             <Box sx={{
+            <Box sx={{
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr' : '1.8fr 1fr',
               gap: 2.5,
               mb: 3,
               alignItems: 'stretch'
             }}>
-              
+
               <Box sx={{
                 bgcolor: 'white',
                 p: isMobile ? 2 : 3,
@@ -434,7 +444,7 @@ const Dashboard = () => {
                 boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
                 border: '1px solid #e5e7eb',
                 width: '100%'
-             
+
               }}>
                 <Typography variant="h6" sx={{
                   fontSize: isMobile ? '1rem' : '1.25rem',
@@ -630,10 +640,10 @@ const Dashboard = () => {
                   justifyContent: 'center',
                   mb: 3
                 }}>
-                  <Box sx={{ 
-                    position: 'relative', 
-                    width: isMobile ? 120 : 160, 
-                    height: isMobile ? 120 : 160 
+                  <Box sx={{
+                    position: 'relative',
+                    width: isMobile ? 120 : 160,
+                    height: isMobile ? 120 : 160
                   }}>
                     <svg style={{ width: '100%', height: '100%' }} viewBox="0 0 100 100">
                       <circle
@@ -673,16 +683,16 @@ const Dashboard = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
                   {['Integridad', 'Consistencia', 'Completitud'].map((label, index) => {
                     const widths = ['75%', '67%', '83%'];
-                    const colors = ['#14b8a6', '#f59e0b', '#10b981'];
+                    const colors = [coloresAlcaldia.azulCyan, coloresAlcaldia.naranja, coloresAlcaldia.verde];
                     return (
                       <Box key={label} sx={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between'
                       }}>
-                        <Typography variant="body2" sx={{ 
-                          fontSize: isMobile ? '0.75rem' : '0.875rem', 
-                          color: '#6b7280' 
+                        <Typography variant="body2" sx={{
+                          fontSize: isMobile ? '0.75rem' : '0.875rem',
+                          color: '#6b7280'
                         }}>
                           {label}
                         </Typography>
@@ -863,9 +873,9 @@ const Dashboard = () => {
                   </Typography>
                 </Box>
               </Box>
-              
+
               <Box sx={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-                <table style={{ 
+                <table style={{
                   width: '100%',
                   minWidth: isMobile ? '600px' : 'auto',
                   borderCollapse: 'collapse'
