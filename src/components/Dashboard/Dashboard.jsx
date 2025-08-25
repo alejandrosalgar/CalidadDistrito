@@ -209,7 +209,7 @@ const Dashboard = () => {
           bgcolor: 'white',
           color: '#1a202c',
           boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
-          zIndex: 1200, // Z-index menor que el drawer
+          zIndex: 1200,
         }}
       >
         <Toolbar>
@@ -226,11 +226,6 @@ const Dashboard = () => {
           <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 600, flexGrow: 1 }}>
             Dashboard de Calidad de Datos
           </Typography>
-
-          {/* Search Bar */}
-
-
-          {/* Action Buttons */}
 
         </Toolbar>
       </AppBar>
