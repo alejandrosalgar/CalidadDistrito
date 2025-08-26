@@ -18,6 +18,7 @@ import {
   Schedule as ScheduleIcon
 } from '@mui/icons-material';
 import Drawer from '../Drawer';
+import './style/Style.css';
 
 const Dashboard = () => {
   const theme = useTheme();
